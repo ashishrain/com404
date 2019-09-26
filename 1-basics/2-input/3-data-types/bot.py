@@ -1,4 +1,4 @@
-print("what is your name human?")
+print("what' is your name human?")
 name = str(input())
 print("How old are you?")
 age = int(input())
