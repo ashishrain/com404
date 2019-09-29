@@ -10,7 +10,7 @@ energy = int(input())
 print("Please enter the shield level.")
 shield = int(input())
 
-print("Health has been set. \n")
+print("Health has been set.")
 
 #displays lives, energy level and shield
 print("Lives: " + ("♥" * lives) )
