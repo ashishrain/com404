@@ -9,8 +9,10 @@ ad_type = input()
 if ((ad_type == "scary") or (ad_type == "short")):
     print("Entering the dark forest!")
 
+#if user decides "safe" or "long"
 elif ((ad_type == "safe") or (ad_type == "long")):
     print("Taking the safe route!")
 
+#if user decides something else
 else:
     print("Not sure which route to take.")
