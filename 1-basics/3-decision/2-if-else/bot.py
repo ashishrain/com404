@@ -1,3 +1,5 @@
+#code to demonstrate the use of an if...else statement
+
 #asking for user input and storing to activity variable
 print("Please enter the activity to be performed.")
 activity = input("")
