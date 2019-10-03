@@ -9,7 +9,7 @@ ad_type = input()
 if ((ad_type == "scary") or (ad_type == "short")):
     print("Entering the dark forest!")
 
-elif(ad_type == "safe") or (ad_type == "long")):
+elif ((ad_type == "safe") or (ad_type == "long")):
     print("Taking the safe route!")
 
 else:
