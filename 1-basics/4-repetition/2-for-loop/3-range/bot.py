@@ -3,15 +3,9 @@
 print("What level of brightness is required?")
 
 #store the brightness
-brightness_level = int(input())
+required_brightness_level = int(input())
 
 print("Adjusting brightness...")
 
-sum_brightness = "** "
-
-
-for count in range(0, brightness_level, 2):
-
-    print("Beep's brightness level: " + sum_brightness)
-
-    sum_brightness = sum_brightness + sum_brightness
+for brightness in range(2, required_brightness_level + 1, 2):
+    print("Beep's brightness level: " + (brightness * "** "))
