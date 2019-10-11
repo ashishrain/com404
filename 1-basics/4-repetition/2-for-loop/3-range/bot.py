@@ -2,10 +2,22 @@
 
 print("What level of brightness is required?")
 
-#store the brightness
-required_brightness_level = int(input())
+#ask user for required brightness and store in required_brightness variable
+required_brightness = int(input())
 
-print("Adjusting brightness...")
+#using print for a blank space
+print()
 
-for brightness in range(2, required_brightness_level + 1, 2):
-    print("Beep's brightness level: " + (brightness * "** "))
+print("Adjusting Brightness...")
+
+#using print for a blank space
+print()
+
+#using for loop to display the brightness
+for brightness in range(2, required_brightness + 1, 2):
+
+    #printing the updated brightness_level
+    print("Beep's brightness level: " + (brightness * "*"))
+    print("Bop's brightness level: " + (brightness * "*"))
+
+print("Adjustment Complete!")
