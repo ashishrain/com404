@@ -11,7 +11,7 @@ for count in range(0, no_of_display, 1):
 
     print("""
            __
-          /  \_  
+          /  \_
          /^    \\
         /  ^    \_
       _/ ^ ^     ^\\
