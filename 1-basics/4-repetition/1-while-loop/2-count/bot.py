@@ -11,7 +11,7 @@ no_of_live_cables = 0
 #use of control variable in loop condition
 while (no_of_live_cables < live_cables):
 
-    print("Avoiding...")
+    print("Avoiding...", end="")
 
     #update current iteration
     no_of_live_cables += 1
