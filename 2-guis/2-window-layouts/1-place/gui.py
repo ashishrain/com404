@@ -10,15 +10,12 @@ class Gui (Tk):
         #set window attributes
         self.title("Newsletter")
         self.configure(bg="#ececec",
-                       height=500,
-                       width=500)
+                       height=100,
+                       width=400)
 
         #add components to the window
         self.__add_heading_label()
         self.__add_heading_label_two()
-        #self.email_frame()
-        #self.email_label()
-        #self.email_entry()
         self.__add_heading_label_three()
         self.__add_three_entry()
         self.__add_button()
@@ -31,7 +28,7 @@ class Gui (Tk):
         self.heading_label.configure(text="RECEIVE OUR NEWSLETTER",
                                      bg="#ececec",
                                      fg="#000000",
-                                     font="Ariel 24")
+                                     font="Ariel 16")
         #handle events
 
     def __add_heading_label_two(self):
@@ -43,26 +40,6 @@ class Gui (Tk):
                                   bg="#ececec",
                                   fg="#000000",
                                   font="Ariel 10")
-
-    #def add_email_frame(self):
-        #self.email_frame = Frame()
-        #self.email_frame.pack()
-
-    #def add_email_label(self):
-        #self.email_label = Label(self.email_frame)
-        #self.email_label.pack(side=LEFT)
-        #style
-        #self.email_label.configure(text="Email:",
-                                   #bg="#ececec",
-                                   #fg="#000000",
-                                   #font="Ariel 10")
-
-    #def add_email_entry(self):
-        #self.email_entry = Entry(self.email_frame)
-        #self.email_entry.pack(side=RIGHT)
-        #style
-        #self.email_entry.configure(bg="#dedede",
-                                   #width=30)
 
     def __add_heading_label_three(self):
         #create
