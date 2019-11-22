@@ -20,7 +20,7 @@ class Gui(Tk):
         self.heading_label = Label()
         self.heading_label.grid(row=0,
                                 column=0,
-                                sticky="N")
+                                sticky=N)
         #style
         self.heading_label.configure(text="Entrance Ticket",
                                            fg="#000110",
