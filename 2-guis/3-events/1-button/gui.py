@@ -24,7 +24,7 @@ class Gui(Tk):
         #style
         self.heading_label.configure(text="Entrance Ticket",
                                            fg="#000110",
-                                           font="#Ariel 25")
+                                           font="Ariel 25")
         
     def __add_instruction_label(self):
         #create
