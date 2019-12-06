@@ -15,7 +15,7 @@ class AnimatedGui(Tk):
                        bg="#73b504")
 
         # set animation attributes
-        self.ball_x_pos = 250
+        self.ball_x_pos = 240
         self.ball_y_pos = 0
         self.ball_x_change = 1
         self.ball_y_change = 1
