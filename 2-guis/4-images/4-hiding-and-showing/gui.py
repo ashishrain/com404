@@ -50,14 +50,22 @@ class Gui(Tk):
         #style
         self.entry_one.configure(width=30)
         #events
-        self.entry_one.bind("<FocusOut>", self.__checking)
+        self.entry_one.bind("<KeyRelease>", self.__checking_one)
+
+    def __checking_one(self, event):
+        name_len = len(self.entry_one.get())
+        
+        if name_len == 0:
+            self.status_one_label.configure(image = self.no_image)
+        else:
+            self.status_one_label.configure(image = self.yes_image)
 
     def __add_status_one_label(self):
         #create
         self.status_one_label = Label()
         self.status_one_label.grid(row=1, column=2)
         #style
-        self.status_one_label.configure(image=self.yes_image,
+        self.status_one_label.configure(image=self.no_image,
                                         height=30,
                                         width=30)
 
@@ -76,14 +84,22 @@ class Gui(Tk):
         #style
         self.entry_two.configure(width=30)
         #events
-        self.entry_two.bind("<FocusOut>", self.__checking)
+        self.entry_two.bind("<KeyRelease>", self.__checking_two)
+
+    def __checking_two(self, event):
+        passport_len = len(self.entry_two.get())
+             
+        if passport_len == 0:
+            self.status_two_label.configure(image = self.no_image)
+        else:
+            self.status_two_label.configure(image = self.yes_image)
 
     def __add_status_two_label(self):
         #create
         self.status_two_label = Label()
         self.status_two_label.grid(row=2, column=2)
         #style
-        self.status_two_label.configure(image=self.yes_image,
+        self.status_two_label.configure(image=self.no_image,
                                         height=30,
                                         width=30)
 
@@ -101,13 +117,24 @@ class Gui(Tk):
         self.entry_three.grid(row=3, column=1, padx=20, pady=20)
         #style
         self.entry_three.configure(width=30)
+        #style
+        self.entry_three.bind("<KeyRelease>", self.__checking_three)
+
+    def __checking_three(self, event):
+        no_of_nights = int(self.entry_three.get())
+        no_of_nights_len = len(self.entry_three.get())
+            
+        if (no_of_nights_len == 0) or (no_of_nights > 365):
+            self.status_three_label.configure(image = self.no_image)       
+        else:
+            self.status_three_label.configure(image = self.yes_image)
 
     def __add_status_three_label(self):
         #create
         self.status_three_label = Label()
         self.status_three_label.grid(row=3, column=2)
         #style
-        self.status_three_label.configure(image=self.yes_image,
+        self.status_three_label.configure(image=self.no_image,
                                         height=30,
                                         width=30)
 
@@ -120,33 +147,29 @@ class Gui(Tk):
                                     font="Roboto 16")
         #events
         self.check_button.bind("<Button-1>", self.__checking)
-        #self.check_button.bind("<Button-1>", self.__checking)
 
     def __checking(self, event):
-        #no_of_nights = int(self.entry_three.get())
-        #len_of_nights = len(no_of_nights)
-        name = self.entry_one.get()
-        name_len = len(name)
-        passport = self.entry_two.get()
-        passport_len = len(passport)
-        
-        if (name_len == 0):
+
+        name_len = len(self.entry_one.get())
+        passport_len = len(self.entry_two.get())
+        no_of_nights = int(self.entry_three.get())
+        no_of_nights_len = len(self.entry_three.get())
+
+        if name_len == 0:
             self.status_one_label.configure(image = self.no_image)
-        elif (name_len > 0) or (passport_len > 0):
+        else:
             self.status_one_label.configure(image = self.yes_image)
 
-        if (passport_len == 0):
-            self.status_one_label.configure(image = self.no_image)
-        elif (passport_len > 0):
-            self.status_one_label.configure(image = self.yes_image)
+        if passport_len == 0:
+            self.status_two_label.configure(image = self.no_image)
+        else:
+            self.status_two_label.configure(image = self.yes_image)
 
-        elif (self.entry_two.get() == ""):
-            self.status_one_label.configure(image = self.no_image)
+        if (no_of_nights_len == 0) or (no_of_nights > 365):
+            self.status_three_label.configure(image = self.no_image)       
+        else:
+            self.status_three_label.configure(image = self.yes_image)
 
-        
-
-        #if (no_of_nights <= 0) or (no_of_nights > 365) or (len_of_nights == 0):
-            #self.status_three_label.configure(image = self.no_image)
         
 
 # Create an object of the Gui class when this module is executed
