@@ -131,8 +131,7 @@ class Gui(Tk):
         self.subscribe_button.grid(row=4,
                                    column=0,
                                    columnspan=3,
-                                   sticky=N+E+S+W,
-                                   pady=10)
+                                   sticky=N+E+S+W)
         self.subscribe_button.configure(text="Subscribe",
                                         font="Arial 10",
                                         bg="#fee")

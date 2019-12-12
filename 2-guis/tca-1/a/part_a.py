@@ -77,7 +77,8 @@ class Gui(Tk):
         self.default_image_label.grid(row=2,
                                       column=2,
                                       sticky=W,
-                                      padx=10)
+                                      padx=10,
+                                      pady=10)
         self.default_image_label.configure(image=self.default_image,
                                            height=15,
                                            width=15)
@@ -87,8 +88,7 @@ class Gui(Tk):
         self.subscribe_button.grid(row=3,
                                    column=0,
                                    columnspan=3,
-                                   sticky=N+E+S+W,
-                                   pady=10)
+                                   sticky=N+E+S+W)
         self.subscribe_button.configure(text="Subscribe",
                                         font="Arial 10",
                                         bg="#fee")
