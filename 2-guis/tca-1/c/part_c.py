@@ -23,6 +23,7 @@ class Gui(Tk):
                        padx=10)
 
         #set animation attributes
+        self.button_state = "stopped"
         self.animate_image_x_pos = 200
         self.animate_image_y_pos = 0
         self.animate_image_x_change = 1
@@ -183,30 +184,20 @@ class Gui(Tk):
 
     #event handler
     def __animate_button_clicked(self, event):
-        self.animate_button.configure(text="Stop Animation")
-        self.animate_button.bind("<ButtonRelease-1>", self.__animate_button_clicked_again)
-        type_chosen = self.var_optionmenu.get()
-        if (type_chosen == "Weekly"):
-            self.animation_image_label.configure(image=self.weekly_image)
-            self.animation_image_label.place(x=self.animate_image_x_pos,
-                                             y=self.animate_image_y_pos)
-        elif (type_chosen == "Monthly"):
-            self.animation_image_label.configure(image=self.monthly_image)
-            self.animation_image_label.place(x=self.animate_image_x_pos,
-                                             y=self.animate_image_y_pos)
-        elif (type_chosen == "Yearly"):
-            self.animation_image_label.configure(image=self.yearly_image)
-            self.animation_image_label.place(x=self.animate_image_x_pos,
-                                             y=self.animate_image_y_pos)
-
-    #event handler
-    def __animate_button_clicked_again(self, event):
-        self.animate_button.configure(text="Start Animation")
-        self.animate_button.bind("<ButtonRelease-1>", self.__animate_button_clicked)
-        self.animate_image_x_pos = self.animate_image_x_pos + 0
-        self.animation_image_label.place(x=self.animate_image_x_pos,
-                                         y=self.animate_image_y_pos)
-        
+        if (self.button_state == "stopped"):
+            self.button_state = "running"
+            self.animate_button.configure(text="Stop Animation")
+            type_chosen = self.var_optionmenu.get()
+            if (type_chosen == "Weekly"):
+                self.animation_image_label.configure(image=self.weekly_image)
+            elif (type_chosen == "Monthly"):
+                self.animation_image_label.configure(image=self.monthly_image)
+            elif (type_chosen == "Yearly"):
+                self.animation_image_label.configure(image=self.yearly_image)
+        else:
+            self.button_state = "stopped"
+            self.animate_button.configure(text="Start Animation")
+      
     def __add_animation_frame(self):
         self.animation_frame = Frame(self.outer_frame)
         self.animation_frame.grid(row=6,
@@ -233,11 +224,11 @@ class Gui(Tk):
         if (self.animate_image_y_pos <= 0):
             self.animate_image_y_change = 1
 
-
-        self.animate_image_x_pos = self.animate_image_x_pos + self.animate_image_x_change
-        self.animate_image_y_pos = self.animate_image_y_pos + self.animate_image_y_change
-        self.animation_image_label.place(x=self.animate_image_x_pos, 
-                                    y=self.animate_image_y_pos)
+        if (self.button_state == "running"):
+            self.animate_image_x_pos = self.animate_image_x_pos + self.animate_image_x_change
+            self.animate_image_y_pos = self.animate_image_y_pos + self.animate_image_y_change
+            self.animation_image_label.place(x=self.animate_image_x_pos,
+                                             y=self.animate_image_y_pos)
         self.after(10, self.tick)
 
 # Create an object of the Gui class when this module is executed
