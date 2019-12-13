@@ -19,17 +19,14 @@ class AnimatedGui(Tk):
         self.char_one_x_pos = 1
         self.char_one_y_pos = 1
         self.char_one_x_change = 1
-        #self.char_one_y_change = 1
 
         self.char_two_x_pos = 399
         self.char_two_y_pos = 150
         self.char_two_x_change = 1
-        self.char_two_y_change = 1
 
         self.char_three_x_pos = 399
         self.char_three_y_pos = 300
         self.char_three_x_change = 1
-        self.char_three_y_change = 1
 
         #add components
         self.add_char_one_image_label()
