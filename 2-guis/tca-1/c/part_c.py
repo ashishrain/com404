@@ -23,7 +23,7 @@ class Gui(Tk):
                        padx=10)
 
         #set animation attributes
-        self.button_state = "stopped"
+        self.button_state = "not running"
         self.animate_image_x_pos = 200
         self.animate_image_y_pos = 0
         self.animate_image_x_change = 1
@@ -184,7 +184,7 @@ class Gui(Tk):
 
     #event handler
     def __animate_button_clicked(self, event):
-        if (self.button_state == "stopped"):
+        if (self.button_state == "not running"):
             self.button_state = "running"
             self.animate_button.configure(text="Stop Animation")
             type_chosen = self.var_optionmenu.get()
@@ -195,7 +195,7 @@ class Gui(Tk):
             elif (type_chosen == "Yearly"):
                 self.animation_image_label.configure(image=self.yearly_image)
         else:
-            self.button_state = "stopped"
+            self.button_state = "not running"
             self.animate_button.configure(text="Start Animation")
       
     def __add_animation_frame(self):
